@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/main.js"></script> <!-- Enlace al archivo main.js -->
+<h1 class="title">Mis productos</h1>
+
+<div class="productsContainer">
+    {{#each productos}}
+    <div class="card">
+        <img src="{{this.thumbnails}}" alt="imagen" class="image"> </img>
+        <p>{{this.title}}</p>
+        <p>{{this.description}}</p>
+        <p>$ {{this.price}}</p>
+        <!-- Botón para ver detalles del producto -->
+        <a href="/products/{{this._id}}" class="button">Ver Detalles</a>
+
+    </div>
+    {{/each}}
+</div>
+
+<!-- Botón para ir al carrito -->
+<div class="cart-button">
+    <a href="/carts/66c55c66b5969a064c52a69c" class="button">Ver mi carrito</a>
+</div>
+
+<!-- Paginación -->
+<div class="pagination">
+    {{#if prevPage}}
+        <a href="/products?page={{prevPage}}{{#if sort}}&sort={{sort}}{{/if}}">Página anterior</a>
+    {{/if}}
+    {{#if nextPage}}
+        <a href="/products?page={{nextPage}}{{#if sort}}&sort={{sort}}{{/if}}">Página siguiente</a>
+    {{/if}}
+</div>
