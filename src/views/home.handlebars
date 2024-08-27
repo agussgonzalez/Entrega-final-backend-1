@@ -24,9 +24,9 @@
 <!-- Paginación -->
 <div class="pagination">
     {{#if prevPage}}
-        <a href="/products?page={{prevPage}}{{#if sort}}&sort={{sort}}{{/if}}">Página anterior</a>
+        <a class="buttonPag" href="/products?page={{prevPage}}{{#if sort}}&sort={{sort}}{{/if}}">⬅️Página anterior</a>
     {{/if}}
     {{#if nextPage}}
-        <a href="/products?page={{nextPage}}{{#if sort}}&sort={{sort}}{{/if}}">Página siguiente</a>
+        <a class="buttonPag" href="/products?page={{nextPage}}{{#if sort}}&sort={{sort}}{{/if}}">Página siguiente➡️</a>
     {{/if}}
 </div>
