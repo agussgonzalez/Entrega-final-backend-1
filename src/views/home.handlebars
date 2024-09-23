@@ -1,17 +1,22 @@
 <link rel="stylesheet" href="/css/style.css">
-<script src="/js/main.js"></script> <!-- Enlace al archivo main.js -->
+<script src="/js/main.js"></script>
+
 <h1 class="title"> 🔥Midland Shopping "CDM"🔥</h1>
+
+{{#if username}}
+    <div class="welcome-message">
+        Bienvenido, {{username}}!
+    </div>
+{{/if}}
 
 <div class="productsContainer">
     {{#each productos}}
     <div class="card">
-        <img src="{{this.thumbnails}}" alt="imagen" class="image"> </img>
+        <img src="{{this.thumbnails}}" alt="imagen" class="image">
         <p>{{this.title}}</p>
         <p>{{this.description}}</p>
         <p>$ {{this.price}}</p>
-        <!-- Botón para ver detalles del producto -->
         <a href="/products/{{this._id}}" class="button">Ver Detalles</a>
-
     </div>
     {{/each}}
 </div>

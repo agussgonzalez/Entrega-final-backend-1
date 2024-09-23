@@ -15,6 +15,9 @@ router.get("/products", async (req, res) => {
         const sortOrder = req.query.sortOrder || null; // Orden de los productos
         const filter = req.query.filter || {}; // Filtros aplicados
 
+        const username = req.session.username; // Obtén el nombre del usuario
+    req.session.username = null; // Limpia la sesión para no mostrar el mensaje de nuevo
+
         // Obtener los productos con paginación
         const productos = await manager.getProducts({
             limit,
@@ -33,6 +36,7 @@ router.get("/products", async (req, res) => {
 
         // Renderizar la vista con los datos necesarios
         res.render("home", {
+            username,
             productos,
             prevPage,
             nextPage,
@@ -76,6 +80,14 @@ router.get("/realtimeproducts", (req, res) => {
 
 router.get('/products/add', (req, res) => {
     res.render('addProduct');
+});
+
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
+router.get('/register', (req, res) => {
+    res.render('register');
 });
 
 export { router as viewsRouter };
